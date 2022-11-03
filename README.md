@@ -13,7 +13,7 @@
 </p>
 
 
-## About,
+## About
 
 Welcome to Mocked-API, this is a live API that can be accessed by anyone who needs data to test out their website, app, components etc.
 
