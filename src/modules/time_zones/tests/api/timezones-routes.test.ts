@@ -1,34 +1,27 @@
 import request from 'supertest';
 import app from '../../../../../app';
 
-
 describe('GET /time-zones/', () => {
-  it('should return 200 OK', async () => {
-    const response = await request(app).get('/time-zones');
-    const timeZone = response.body[0];
+    it('should return a list of timezones', async () => {
+        const response = await request(app).get('/time-zones');
 
-    expect(response.status).toBe(200);
-    expect(response.body).toBeInstanceOf(Array);
-    expect(timeZone).toHaveProperty('value');
-    expect(timeZone).toHaveProperty('abbr');
-    expect(timeZone).toHaveProperty('offset');
-    expect(timeZone).toHaveProperty('isdst');
-    expect(timeZone).toHaveProperty('text');
-    expect(timeZone).toHaveProperty('utc');
-  });
+        expect(response).not.toBeFalsy();
+        expect(response.status).toBe(200);
+        expect(response.body as Array<TimeZone>).toBeTruthy();
+
+        const timeZone = response.body[0];
+        expect(timeZone).toMatchObject<TimeZone>;
+    });
 });
 
 describe('GET /time-zones/random', () => {
-  it('should return 200 OK', async () => {
-    const response = await request(app).get('/time-zones/random');
-    const timeZone = response.body;
+    it('should return a random timezone', async () => {
+        const response = await request(app).get('/time-zones/random');
 
-    expect(response.status).toBe(200);
-    expect(timeZone).toHaveProperty('value');
-    expect(timeZone).toHaveProperty('abbr');
-    expect(timeZone).toHaveProperty('offset');
-    expect(timeZone).toHaveProperty('isdst');
-    expect(timeZone).toHaveProperty('text');
-    expect(timeZone).toHaveProperty('utc');
-  });
+        expect(response).not.toBeFalsy();
+        expect(response.status).toBe(200);
+
+        const timeZone = response.body;
+        expect(timeZone).toMatchObject<TimeZone>;
+    });
 });

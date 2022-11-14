@@ -27,7 +27,7 @@ const options: swaggerJsdoc.Options = {
                 description: 'A set of endpoints related to animal',
             },
             {
-                name: 'BankFeeds',
+                name: 'Banks',
                 description: 'A set of endpoints related to bank feeds',
             },
             {
@@ -105,6 +105,10 @@ const options: swaggerJsdoc.Options = {
             {
                 name: 'Sports',
                 description: 'A set of endpoints to get random sports data',
+            },
+            {
+                name: 'Text',
+                description: 'A set of endpoints to get random text',
             },
             {
                 name: 'TimeZones',

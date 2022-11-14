@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "version": "0.15.0",
+        "version": "0.16.1",
         "title": "Mocked-API",
         "description": "An API library for providing endpoints of mock data for use during testing. This API is still in the development and until it reaches version 1.0.0 the API is subject to change. To find out more head over to https://mocked-api.dev/"
     },
@@ -840,6 +840,34 @@
                     }
                 ],
                 "summary": "Returns random litecoin addresses",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/currencies/digital-coins/ripple/ledgers-list/{qty}": {
+            "get": {
+                "tags": [
+                    "Currencies"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "qty",
+                        "description": "The amount of ledgers you require",
+                        "type": "string",
+                        "default": 10
+                    }
+                ],
+                "summary": "Returns a random set of Ripple (XPR) Validated Ledgers",
                 "responses": {
                     "200": {
                         "description": "OK",
